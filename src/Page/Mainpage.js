@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 function Mainpage() {
-  const [positionState, setpositionState] = useState("relative");
   const [saveStates, setsaveStates] = useState("");
+
+  const [positionState, setPositionState] = useState("relative");
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -14,38 +15,37 @@ function Mainpage() {
     }
     if (scrollContainerRef.current) {
       scrollContainerRef.current.addEventListener("scroll", handleScroll);
+      console.log("dasfasd");
     }
     return () => {
       if (scrollContainerRef.current) {
         scrollContainerRef.current.removeEventListener("scroll", handleScroll);
       }
     };
-  }, []);
+  }, [scrollContainerRef]);
 
   useEffect(() => {
-    if (scrollPosition < 50) {
-      setpositionState("fixed");
-    } else if (scrollPosition > 127 && scrollPosition < 365) {
+    if (scrollPosition < 127) {
+      setPositionState("fixed");
     } else {
+      setPositionState("relative");
     }
-    console.log(scrollPosition);
   }, [scrollPosition]);
 
   return (
     <>
       <Maindiv>
-        <Circle opacity={0.5} />
+        <Circle opacity={0.5} ref={scrollContainerRef} />
         <StyledText position={positionState}>asfasfd</StyledText>
       </Maindiv>
     </>
   );
 }
-
 export default Mainpage;
 
 const Maindiv = styled.div`
   width: 100%;
-  height: 2000px;
+  height: auto;
   background-color: black;
   padding: 50px 0px;
   display: flex;
@@ -55,7 +55,7 @@ const Maindiv = styled.div`
 
 const Circle = styled.div`
   width: 1000px;
-  height: 1000px;
+  height: 2000px;
   border-radius: 90%;
   background-color: white;
   opacity: ${({ opacity }) => opacity || 1};
