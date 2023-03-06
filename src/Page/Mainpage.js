@@ -15,7 +15,6 @@ function Mainpage() {
     }
     if (scrollContainerRef.current) {
       scrollContainerRef.current.addEventListener("scroll", handleScroll);
-      console.log("dasfasd");
     }
     return () => {
       if (scrollContainerRef.current) {
@@ -26,16 +25,17 @@ function Mainpage() {
 
   useEffect(() => {
     if (scrollPosition < 127) {
-      setPositionState("fixed");
+      //   setPositionState("fixed");
     } else {
       setPositionState("relative");
     }
+    console.log(scrollPosition);
   }, [scrollPosition]);
 
   return (
     <>
-      <Maindiv>
-        <Circle opacity={0.5} ref={scrollContainerRef} />
+      <Maindiv ref={scrollContainerRef}>
+        <Circle opacity={0.5} />
         <StyledText position={positionState}>asfasfd</StyledText>
       </Maindiv>
     </>
@@ -46,6 +46,7 @@ export default Mainpage;
 const Maindiv = styled.div`
   width: 100%;
   height: auto;
+  position: relative;
   background-color: black;
   padding: 50px 0px;
   display: flex;
