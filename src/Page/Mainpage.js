@@ -3,31 +3,23 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 function Mainpage() {
-  const [saveStates, setsaveStates] = useState("");
-
-  const [positionState, setPositionState] = useState("relative");
   const scrollContainerRef = useRef(null);
+  const [showText, setShowText] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    function handleScroll() {
-      setScrollPosition(scrollContainerRef.current.scrollTop);
-    }
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.addEventListener("scroll", handleScroll);
-    }
-    return () => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.removeEventListener("scroll", handleScroll);
-      }
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
     };
-  }, [scrollContainerRef]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
-    if (scrollPosition < 127) {
-      //   setPositionState("fixed");
+    if (scrollPosition >= 500) {
+      setShowText(true);
     } else {
-      setPositionState("relative");
+      setShowText(!true);
     }
     console.log(scrollPosition);
   }, [scrollPosition]);
@@ -35,8 +27,11 @@ function Mainpage() {
   return (
     <>
       <Maindiv ref={scrollContainerRef}>
-        <Circle opacity={0.5} />
-        <StyledText position={positionState}>asfasfd</StyledText>
+        {!showText && <OpenCircle opacity={1 - scrollPosition / 1000 / 2} />}
+        {showText && <CloseCircle opacity={(scrollPosition - 500) / 500} />}
+        <StyledText>
+          afsfasfdas dfsafdsad fasfsadfs adfsadfsda fsadfsaddfsadfdsdafasfasdsdf
+        </StyledText>
       </Maindiv>
     </>
   );
@@ -45,31 +40,40 @@ export default Mainpage;
 
 const Maindiv = styled.div`
   width: 100%;
-  height: auto;
-  position: relative;
+  height: 3000px;
   background-color: black;
   padding: 50px 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 `;
 
-const Circle = styled.div`
+const OpenCircle = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 1000px;
-  height: 2000px;
+  height: 1000px;
   border-radius: 90%;
-  background-color: white;
+  z-index: 2;
+  background-color: black;
+  opacity: ${({ opacity }) => opacity || 0};
+`;
+
+const CloseCircle = styled(OpenCircle)`
   opacity: ${({ opacity }) => opacity || 1};
 `;
 
 const StyledText = styled.div`
-  position: ${(props) => props.position};
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 5rem;
+  width: 500px;
+  font-size: 6rem;
   background: linear-gradient(
-    to left,
+    270deg,
     #ff9a9e 0%,
     #fecfef 99%,
     #fecfef 100%
