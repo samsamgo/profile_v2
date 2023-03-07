@@ -6,6 +6,7 @@ function Mainpage() {
   const scrollContainerRef = useRef(null);
   const [showText, setShowText] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const data = useSelector((state) => state);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +17,7 @@ function Mainpage() {
   }, []);
 
   useEffect(() => {
-    if (scrollPosition >= 500) {
+    if (scrollPosition >= 1000) {
       setShowText(true);
     } else {
       setShowText(!true);
@@ -27,11 +28,14 @@ function Mainpage() {
   return (
     <>
       <Maindiv ref={scrollContainerRef}>
-        {!showText && <OpenCircle opacity={1 - scrollPosition / 1000 / 2} />}
-        {showText && <CloseCircle opacity={(scrollPosition - 500) / 500} />}
+        {!showText && <OpenCircle opacity={1 - scrollPosition / 1000} />}
+        {showText && <CloseCircle opacity={(scrollPosition - 1000) / 1000} />}
         <StyledText>
           afsfasfdas dfsafdsad fasfsadfs adfsadfsda fsadfsaddfsadfdsdafasfasdsdf
         </StyledText>
+        <div id={data.tooltipStates} style={{ height: "1000px" }}>
+          Target Element{data.tooltipStates}
+        </div>
       </Maindiv>
     </>
   );
@@ -40,7 +44,7 @@ export default Mainpage;
 
 const Maindiv = styled.div`
   width: 100%;
-  height: 3000px;
+  height: 4000px;
   background-color: black;
   padding: 50px 0px;
   display: flex;
@@ -72,6 +76,7 @@ const StyledText = styled.div`
   transform: translate(-50%, -50%);
   width: 500px;
   font-size: 6rem;
+  font-weight: bold;
   background: linear-gradient(
     270deg,
     #ff9a9e 0%,

@@ -7,11 +7,7 @@ import "animate.css/animate.min.css";
 function Header() {
   const [tooltipStates, setTooltipStates] = useState("");
   const [saveStates, setsaveStates] = useState("");
-  const data = useSelector((state) => state);
-
-  useEffect(() => {
-    setTooltipStates(`${data}`);
-  }, [data]);
+  const dispatch = useDispatch();
 
   const handleMouseEnter = (tabName) => (event) => {
     // console.log(`Mouse entered ${tabName} tab`);
@@ -22,6 +18,17 @@ function Header() {
 
     setTooltipStates(`${tabName}`);
   };
+
+  function scrollToTarget(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+    dispatch({ type: "SET_tooltipStates", tooltipStates: targetId });
+  }
 
   const ModalContent = ({ show, children }) => {
     if (!show) {
@@ -43,7 +50,7 @@ function Header() {
           {tooltipStates === "none" ? (
             <Modal>{saveStates}</Modal>
           ) : (
-            <Modal>{children}</Modal>
+            <Modal onClick={() => scrollToTarget(children)}>{children}</Modal>
           )}
         </Modalbackdrop>
       </>
