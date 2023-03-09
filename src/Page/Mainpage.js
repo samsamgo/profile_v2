@@ -2,9 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
+import Skill from "../Component/Skill";
+import Study from "../Component/Study";
+import Education from "../Component/Education";
+import Project from "../Component/Project";
+
 function Mainpage() {
-  const scrollContainerRef = useRef(null);
-  const [showText, setShowText] = useState(true);
+  const [showText1, setShowText1] = useState(false);
+  const [showText2, setShowText2] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const data = useSelector((state) => state);
 
@@ -17,25 +22,37 @@ function Mainpage() {
   }, []);
 
   useEffect(() => {
-    if (scrollPosition >= 1000) {
-      setShowText(true);
+    if (scrollPosition <= 1000) {
+      setShowText1(true);
+    } else if (scrollPosition >= 1000 && scrollPosition <= 2000) {
+      setShowText1(false);
+      setShowText2(true);
     } else {
-      setShowText(!true);
+      setShowText2(!true);
     }
     console.log(scrollPosition);
   }, [scrollPosition]);
 
   return (
     <>
-      <Maindiv ref={scrollContainerRef}>
-        {!showText && <OpenCircle opacity={1 - scrollPosition / 1000} />}
-        {showText && <CloseCircle opacity={(scrollPosition - 1000) / 1000} />}
-        <StyledText>
-          afsfasfdas dfsafdsad fasfsadfs adfsadfsda fsadfsaddfsadfdsdafasfasdsdf
-        </StyledText>
-        <div id={data.tooltipStates} style={{ height: "1000px" }}>
-          Target Element{data.tooltipStates}
-        </div>
+      <Maindiv>
+        <scrolldiv>
+          {showText1 && <OpenCircle opacity={1 - scrollPosition / 1000} />}
+          {showText2 && (
+            <CloseCircle opacity={(scrollPosition - 1000) / 1000} />
+          )}
+          {(showText1 || showText2) && (
+            <StyledText>
+              안녕하세요 <br />
+              Front-end 주니어개발자 <br />
+              장경욱입니다.
+            </StyledText>
+          )}
+        </scrolldiv>
+        <Study />
+        <Skill />
+        <Education scrollPosition={scrollPosition} />
+        <Project />
       </Maindiv>
     </>
   );
@@ -44,12 +61,20 @@ export default Mainpage;
 
 const Maindiv = styled.div`
   width: 100%;
-  height: 4000px;
+  height: auto;
   background-color: black;
-  padding: 50px 0px;
+  padding: 150px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  scrolldiv {
+    height: 3000px;
+  }
+  introdiv {
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 const OpenCircle = styled.div`
@@ -74,15 +99,20 @@ const StyledText = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  font-size: 6rem;
+  width: 900px;
+  line-height: 9rem;
+  font-size: 5rem;
+  text-align: center;
   font-weight: bold;
-  background: linear-gradient(
-    270deg,
-    #ff9a9e 0%,
-    #fecfef 99%,
-    #fecfef 100%
-  ) !important;
+  background-image: linear-gradient(
+    to right,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
   -webkit-background-clip: text !important;
   color: transparent;
 `;

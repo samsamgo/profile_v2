@@ -100,6 +100,7 @@ const Modalbackdrop = styled.div`
   flex-direction: column;
   width: 100%;
   height: 400px;
+
   margin: 20px 0px;
   position: absolute;
   &.animate__animated {
@@ -119,6 +120,11 @@ const Modal = styled.div`
   position: fixed;
   font-size: 5rem;
   font-weight: bold;
+  color: #a1a1aa;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    cursor: grab;
+  }
 `;
 
 const StyledTab = styled.div`
@@ -137,8 +143,9 @@ const Tab = styled.div`
 
 const Headdiv = styled.div`
   width: 100%;
+  z-index: 3;
   background-color: black;
-  position: relative;
+  position: fixed;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
   padding: 10px 0px;
