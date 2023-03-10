@@ -52,7 +52,7 @@ function Mainpage() {
         <Study />
         <Skill />
         <Education scrollPosition={scrollPosition} />
-        <Project />
+        <Project scrollPosition={scrollPosition} />
       </Maindiv>
     </>
   );
