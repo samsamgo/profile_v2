@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "animate.css/animate.min.css";
 
 function Header() {
