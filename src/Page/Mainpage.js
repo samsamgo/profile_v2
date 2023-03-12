@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Skill from "../Component/Skill";
 import Study from "../Component/Study";
