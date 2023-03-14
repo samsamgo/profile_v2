@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 import Skill from "../Component/Skill";
 import Study from "../Component/Study";
@@ -11,7 +11,7 @@ function Mainpage() {
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const data = useSelector((state) => state);
+  // const data = useSelector((state) => state);
 
   useEffect(() => {
     const handleScroll = () => {
