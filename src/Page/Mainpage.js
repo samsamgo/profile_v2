@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Intro from "../Component/Intro";
 import Skill from "../Component/Skill";
@@ -12,7 +12,7 @@ function Mainpage() {
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  // const data = useSelector((state) => state);
+  const data = useSelector((state) => state);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +21,15 @@ function Mainpage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (data.tooltipStates) {
+      const targetElement = document.getElementById(data.tooltipStates);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [data.tooltipStates]);
 
   useEffect(() => {
     if (scrollPosition <= 1000) {
@@ -50,7 +59,7 @@ function Mainpage() {
             </StyledText>
           )}
         </scrolldiv>
-        <Intro scrollPosition={scrollPosition} />
+        <Intro id="Modal for Tab 2" scrollPosition={scrollPosition} />
         <Study />
         <Skill />
         <Education scrollPosition={scrollPosition} />
