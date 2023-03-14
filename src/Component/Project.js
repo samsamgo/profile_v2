@@ -11,15 +11,14 @@ function Project({ scrollPosition }) {
 
   const [position, setposition] = useState(true);
   const [showimg, setshowimg] = useState(false);
-  const [showtext, setshowtext] = useState(false);
 
-  const handleMouseEnter = (tabName) => (event) => {
-    console.log(`Mouse entered ${tabName} tab`);
-    setprojectname(`${tabName}`);
-    setshowimg(true);
-  };
+  // const handleMouseEnter = (tabName) => (event) => {
+  //   console.log(`Mouse entered ${tabName} tab`);
+  //   setprojectname(`${tabName}`);
+  //   setshowimg(true);
+  // };
 
-  const [showText, setShowText] = useState(false);
+  // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
     if (scrollPosition >= 9500 && scrollPosition <= 10400) {
@@ -149,8 +148,6 @@ function Project({ scrollPosition }) {
 
 export default Project;
 
-const Project2div = styled.d(Project1div)``;
-
 const Project1div = styled.div`
   display: flex;
   flex-direction: column;
@@ -231,6 +228,9 @@ const Project1div = styled.div`
     margin: 10% 0px 0px 0px;
   }
 `;
+
+const Project2div = styled(Project1div)``;
+
 const StyledText = styled.div`
   height: 1000px;
 `;
