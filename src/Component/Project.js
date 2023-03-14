@@ -10,7 +10,7 @@ function Project({ scrollPosition }) {
   const [background, setBackground] = useState(require("../Asset/back1.png"));
 
   const [position, setposition] = useState(true);
-  const [showimg, setshowimg] = useState(false);
+  const [showimg] = useState(false);
 
   // const handleMouseEnter = (tabName) => (event) => {
   //   console.log(`Mouse entered ${tabName} tab`);
