@@ -6,11 +6,11 @@ import logo3 from "../Asset/3.png";
 
 function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
-  const [projectname, setprojectname] = useState("");
+  // const [projectname, setprojectname] = useState("");
   const [background, setBackground] = useState(require("../Asset/back1.png"));
 
   const [position, setposition] = useState(true);
-  const [showimg, setshowimg] = useState(false);
+  const [showimg] = useState(false);
 
   // const handleMouseEnter = (tabName) => (event) => {
   //   console.log(`Mouse entered ${tabName} tab`);
