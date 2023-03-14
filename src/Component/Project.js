@@ -42,7 +42,7 @@ function Project({ scrollPosition }) {
       setBackground(images[Math.floor(Math.random() * images.length)]);
     }, 5000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [images]);
 
   return (
     <>
