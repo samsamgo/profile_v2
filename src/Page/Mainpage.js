@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import { useSelector } from "react-redux";
 
+import Intro from "../Component/Intro";
 import Skill from "../Component/Skill";
 import Study from "../Component/Study";
 import Education from "../Component/Education";
@@ -49,6 +50,7 @@ function Mainpage() {
             </StyledText>
           )}
         </scrolldiv>
+        <Intro scrollPosition={scrollPosition} />
         <Study />
         <Skill />
         <Education scrollPosition={scrollPosition} />

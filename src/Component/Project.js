@@ -10,7 +10,7 @@ function Project({ scrollPosition }) {
   const [background, setBackground] = useState(require("../Asset/back1.png"));
 
   const [position, setposition] = useState(true);
-  const [showimg] = useState(false);
+  const [showimg, setshowimg] = useState(true);
 
   // const handleMouseEnter = (tabName) => (event) => {
   //   console.log(`Mouse entered ${tabName} tab`);
@@ -21,10 +21,17 @@ function Project({ scrollPosition }) {
   // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 9500 && scrollPosition <= 10400) {
+    if (scrollPosition >= 10300 && scrollPosition <= 11300) {
       setposition(false);
     } else {
       setposition(true);
+    }
+  }, [scrollPosition]);
+  useEffect(() => {
+    if (scrollPosition >= 9400 && scrollPosition <= 10300) {
+      setshowimg(false);
+    } else {
+      setshowimg(true);
     }
   }, [scrollPosition]);
 
@@ -48,7 +55,7 @@ function Project({ scrollPosition }) {
     <>
       <Projectdiv>
         <namediv>Project</namediv>
-        <Logodiv showimg={showimg}>
+        <Logodiv>
           <img
             src={logo1}
             alt="logo_img"
@@ -101,7 +108,7 @@ function Project({ scrollPosition }) {
             사용하여 일정한 시간마다 이미지를 변경하도록 설정하였습니다.
           </desciptiondiv>
           <dayname>유튜브 api를 이용한 영상 삽입</dayname>
-          <door>
+          <door showimg={showimg}>
             <img
               src="https://media.tenor.com/tYIUpIiF-LIAAAAC/youtube-logo.gif"
               alt="img"
@@ -115,7 +122,7 @@ function Project({ scrollPosition }) {
           <StyledText>
             <TextDiv
               position={position}
-              fontSize={Math.min(10, 10 - (scrollPosition - 9173) / 100)}
+              fontSize={Math.min(10, 10 - (scrollPosition - 10000) / 100)}
             >
               안녕하세요
             </TextDiv>
@@ -168,6 +175,8 @@ const Project1div = styled.div`
     flex-direction: row;
     align-items: center;
     margin: 50px 0px;
+    animation: ${({ showimg }) =>
+      showimg ? "fadeInLeft 2s" : "fadeInLeft 2s"};
     img {
       height: 200px;
       width: auto;

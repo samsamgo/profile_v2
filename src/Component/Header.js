@@ -99,8 +99,7 @@ const Modalbackdrop = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
-
+  height: 200px;
   margin: 20px 0px;
   position: absolute;
   &.animate__animated {
