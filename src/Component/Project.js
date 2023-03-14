@@ -28,21 +28,21 @@ function Project({ scrollPosition }) {
     }
   }, [scrollPosition]);
 
-  const images = [
-    require("../Asset/back1.png"),
-    require("../Asset/back2.png"),
-    require("../Asset/back3.png"),
-    require("../Asset/back4.png"),
-    require("../Asset/back5.png"),
-    require("../Asset/back6.png"),
-    // ...
-  ];
   useEffect(() => {
+    const images = [
+      require("../Asset/back1.png"),
+      require("../Asset/back2.png"),
+      require("../Asset/back3.png"),
+      require("../Asset/back4.png"),
+      require("../Asset/back5.png"),
+      require("../Asset/back6.png"),
+      // ...
+    ];
     const intervalId = setInterval(() => {
       setBackground(images[Math.floor(Math.random() * images.length)]);
     }, 5000);
     return () => clearInterval(intervalId);
-  }, [images]);
+  }, []);
 
   return (
     <>
