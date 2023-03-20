@@ -47,7 +47,7 @@ function Project({ scrollPosition }) {
     ];
     const intervalId = setInterval(() => {
       setBackground(images[Math.floor(Math.random() * images.length)]);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, []);
 

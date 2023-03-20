@@ -74,28 +74,28 @@ function Header() {
           </StyledTab>
         </Tab>
         <ModalContent
-          show={tooltipStates === "Study"}
-          childrenid={"Modal for Tab 1"}
-        >
-          blog
-        </ModalContent>
-        <ModalContent
           show={tooltipStates === "Introduction"}
           childrenid={"Modal for Tab 2"}
         >
-          IM'a
+          Im'a
+        </ModalContent>
+        <ModalContent
+          show={tooltipStates === "Study"}
+          childrenid={"Modal for Tab 1"}
+        >
+          Blog
         </ModalContent>
         <ModalContent
           show={tooltipStates === "Education"}
-          childrenid={"Modal for Tab 3"}
+          childrenid={"Modal for Tab 4"}
         >
           Code States
         </ModalContent>
         <ModalContent
           show={tooltipStates === "Skill"}
-          childrenid={"Modal for Tab 4"}
+          childrenid={"Modal for Tab 3"}
         >
-          fornt-end back-end etc
+          Skill
         </ModalContent>
         <ModalContent
           show={tooltipStates === "Project"}
@@ -132,7 +132,8 @@ const Modal = styled.div`
   display: flex;
   flex-direction: column;
   position: fixed;
-  font-size: 5rem;
+  font-size: 2rem;
+  margin: 10px 30px;
   font-weight: bold;
   color: #a1a1aa;
   &:hover {
