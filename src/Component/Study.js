@@ -156,6 +156,7 @@ const StyledPieChart = styled(ResponsivePie)`
   height: 400px; /* 부모 컨테이너의 높이를 설정해줍니다. */
   margin: 50px;
   /* 추가적인 스타일링을 원하는 경우 여기에 작성합니다. */
+  
 `;
 
 const Studydiv = styled.div`

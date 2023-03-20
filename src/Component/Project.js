@@ -21,7 +21,7 @@ function Project({ scrollPosition }) {
   // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 10300 && scrollPosition <= 11300) {
+    if (scrollPosition >= 10300 && scrollPosition <= 11200) {
       setposition(false);
     } else {
       setposition(true);

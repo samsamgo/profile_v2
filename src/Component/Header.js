@@ -30,7 +30,7 @@ function Header() {
     dispatch({ type: "SET_tooltipStates", tooltipStates: targetId });
   }
 
-  const ModalContent = ({ show, children }) => {
+  const ModalContent = ({ show, children, childrenid }) => {
     if (!show) {
       if (tooltipStates !== "none") {
         return null;
@@ -50,7 +50,7 @@ function Header() {
           {tooltipStates === "none" ? (
             <Modal>{saveStates}</Modal>
           ) : (
-            <Modal onClick={() => scrollToTarget(children)}>{children}</Modal>
+            <Modal onClick={() => scrollToTarget(childrenid)}>{children}</Modal>
           )}
         </Modalbackdrop>
       </>
@@ -73,20 +73,35 @@ function Header() {
             Project
           </StyledTab>
         </Tab>
-        <ModalContent show={tooltipStates === "Study"}>
-          Modal for Tab 1
+        <ModalContent
+          show={tooltipStates === "Study"}
+          childrenid={"Modal for Tab 1"}
+        >
+          blog
         </ModalContent>
-        <ModalContent show={tooltipStates === "Introduction"}>
-          Modal for Tab 2
+        <ModalContent
+          show={tooltipStates === "Introduction"}
+          childrenid={"Modal for Tab 2"}
+        >
+          IM'a
         </ModalContent>
-        <ModalContent show={tooltipStates === "Education"}>
-          Modal for Tab 3
+        <ModalContent
+          show={tooltipStates === "Education"}
+          childrenid={"Modal for Tab 3"}
+        >
+          Code States
         </ModalContent>
-        <ModalContent show={tooltipStates === "Skill"}>
-          Modal for Tab 4
+        <ModalContent
+          show={tooltipStates === "Skill"}
+          childrenid={"Modal for Tab 4"}
+        >
+          fornt-end back-end etc
         </ModalContent>
-        <ModalContent show={tooltipStates === "Project"}>
-          Modal for Tab 5
+        <ModalContent
+          show={tooltipStates === "Project"}
+          childrenid={"Modal for Tab 5"}
+        >
+          samsmago's profile
         </ModalContent>
       </Headdiv>
     </>
