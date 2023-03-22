@@ -3,6 +3,8 @@ import styled from "styled-components";
 import logo1 from "../Asset/1.png";
 import logo2 from "../Asset/2.png";
 import logo3 from "../Asset/3.png";
+import promise from "../Asset/promise.png";
+import Map from "./Map";
 
 function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
@@ -147,6 +149,25 @@ function Project({ scrollPosition }) {
           <dayname>기간</dayname>
           <daying>2023.1.3 ~ 2023.1.31</daying>
           <dayname>map api를 이용한 지도 삽입</dayname>
+          <mapdiv>
+            <Map />
+          </mapdiv>
+          <desciptiondiv>
+            Redux Toolkit을 이용하여 카카오 맵 API에서 반환한 좌표 값을 저장하고
+            출력하는 기능을 추가했습니다. 이를 통해 지도에서 특정 위치를
+            선택하고 해당 위치의 좌표를 저장하여 나중에 다시 참조할 수 있게
+            되었습 니다
+          </desciptiondiv>
+          <dayname>promise객체 데이터 받아오기</dayname>
+          <door showimg={showimg}>
+            <img src={promise} alt="img"></img>
+            <doordesciptiondiv>
+              Axios를 이용하여 Promise 객체를 받아온 후, 해당 객체로 map()
+              메서드를 사용하여 UI를 구성하였습니 다. 이를 통해 비동기적으로
+              데이터를 가져와 화면을 <doorstdiv>동적으로 출력</doorstdiv>할 수
+              있게 되었습니다
+            </doordesciptiondiv>
+          </door>
         </Project2div>
       </Projectdiv>
     </>
@@ -238,7 +259,15 @@ const Project1div = styled.div`
   }
 `;
 
-const Project2div = styled(Project1div)``;
+const Project2div = styled(Project1div)`
+  mapdiv {
+    width: 500px;
+    height: 500px;
+    border-radius: 15px;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    margin: 50px 0px;
+  }
+`;
 
 const StyledText = styled.div`
   height: 1000px;
