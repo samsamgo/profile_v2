@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
 
 const Map = () => {
   const [address, setAddress] = useState([]);
-  const [map, setMap] = useState(null);
-  const mapRef = useRef(null);
   const mapContainer = useRef(null);
   const { kakao } = window;
   const position = new kakao.maps.LatLng(36.7722496, 126.451712);
@@ -18,7 +15,6 @@ const Map = () => {
   const imageSrc =
     "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
   const imageSize = new kakao.maps.Size(24, 35);
-  const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
   useEffect(() => {
     const map = new kakao.maps.Map(mapContainer.current, mapOptions);
