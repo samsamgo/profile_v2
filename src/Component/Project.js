@@ -4,7 +4,7 @@ import logo1 from "../Asset/1.png";
 import logo2 from "../Asset/2.png";
 import logo3 from "../Asset/3.png";
 import promise from "../Asset/promise.png";
-import Map from "./Map";
+// import Map from "./Map";
 
 function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
@@ -149,9 +149,7 @@ function Project({ scrollPosition }) {
           <dayname>기간</dayname>
           <daying>2023.1.3 ~ 2023.1.31</daying>
           <dayname>map api를 이용한 지도 삽입</dayname>
-          <mapdiv>
-            <Map />
-          </mapdiv>
+          <mapdiv>{/* <Map /> */}</mapdiv>
           <desciptiondiv>
             Redux Toolkit을 이용하여 카카오 맵 API에서 반환한 좌표 값을 저장하고
             출력하는 기능을 추가했습니다. 이를 통해 지도에서 특정 위치를
