@@ -1,97 +1,91 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const Map = () => {
-  const [address, setAddress] = useState([]);
+  const [address, setAddress] = useState({});
   const mapContainer = useRef(null);
   const { kakao } = window;
   const position = new kakao.maps.LatLng(36.7722496, 126.451712);
-  const [lat, setlat] = useState(36.7722496);
-  const [lng, setlng] = useState(126.451712);
+  const [lat, setLat] = useState(36.7722496);
+  const [lng, setLng] = useState(126.451712);
   const mapOptions = {
-    center: position, // 지도의 중심좌표
-    level: 8, // 지도의 확대 레벨
+    center: position,
+    level: 8,
   };
-
-  const imageSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-  const imageSize = new kakao.maps.Size(24, 35);
 
   useEffect(() => {
     const map = new kakao.maps.Map(mapContainer.current, mapOptions);
     const positions = [
       {
-        map: map,
         position: new kakao.maps.LatLng(33.450701, 126.570667),
-        title: address.address,
+        title: "제주특별자치도 제주시 첨단로 242",
       },
       {
-        map: map,
-        position: new kakao.maps.LatLng(address.lat, address.lng),
+        position: new kakao.maps.LatLng(lat, lng),
         title: address.address,
       },
     ];
 
-    const addressesWithoutFirst = positions.slice(1);
-    // infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
-    // 커스텀 오버레이에 표출될 내용
-    const content = `
+    // 내위치 커스텀 오버레이 생성
+    const customOverlayContent = `
       <div class="customoverlay">
         <span style="border 2px soled black">내위치</span>
       </div>`;
-
-    // 커스텀 오버레이 생성
-    new kakao.maps.CustomOverlay({
+    const customOverlay = new kakao.maps.CustomOverlay({
       map,
       position,
-      content,
+      content: customOverlayContent,
     });
 
-    // 마커가 지도 위에 표시되도록 설정
-    addressesWithoutFirst.map((item) => {
+    // 다른 위치 마커와 인포윈도우 생성
+    positions.slice(1).forEach((item) => {
       const marker = new kakao.maps.Marker({
-        map: map,
+        map,
         position: item.position,
-        title: item.item,
+        title: item.title,
+        image: new kakao.maps.MarkerImage(
+          "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+          new kakao.maps.Size(24, 35)
+        ),
       });
-      marker.setMap(map);
       const infoWindow = new kakao.maps.InfoWindow({
-        content: `<div style="width:200px; text-align :center; color: black; font-size: 7px;">${address.address}</div>`,
+        content: `<div style="width:200px; text-align :center; color: black; font-size: 14px;">${item.title}</div>`,
       });
-      infoWindow.open(map, marker);
+      kakao.maps.event.addListener(marker, "click", function () {
+        infoWindow.open(map, marker);
+      });
     });
 
-    kakao.maps.event.addListener(map, "click", (event) => {
-      setlat(event.latLng.getLat());
-      setlng(event.latLng.getLng());
+    // 지도 클릭 시 좌표 설정
+    kakao.maps.event.addListener(map, "click", function (mouseEvent) {
+      setLat(mouseEvent.latLng.getLat());
+      setLng(mouseEvent.latLng.getLng());
     });
-  }, [address]);
+  }, [address.address, lat, lng, mapOptions]);
 
   useEffect(() => {
     const geocoder = new kakao.maps.services.Geocoder();
     const coord = new kakao.maps.LatLng(lat, lng);
-    const callback = function (result, status) {
-      if (status === kakao.maps.services.Status.OK) {
-        setAddress({
-          address: result[0].address.address_name,
-          lat: `${lat}`,
-          lng: `${lng}`,
-        });
+    geocoder.coord2Address(
+      coord.getLng(),
+      coord.getLat(),
+      function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          setAddress({
+            address: result[0].address.address_name,
+            lat: lat,
+            lng: lng,
+          });
+        }
       }
-    };
-    geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-  }, [lng]);
+    );
+  }, [lat, lng]);
 
   return (
-    <>
-      <div
-        id="map"
-        ref={mapContainer}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      ></div>
-    </>
+    <div
+      id="map"
+      ref={mapContainer}
+      style={{ width: "100%", height: "100%" }}
+    ></div>
   );
 };
 
