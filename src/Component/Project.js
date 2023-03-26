@@ -166,6 +166,13 @@ function Project({ scrollPosition }) {
               있게 되었습니다
             </doordesciptiondiv>
           </door>
+          <a
+            href="https://github.com/codestates-seb/seb41_main_031"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Project보기(Repository)
+          </a>
         </Project2div>
       </Projectdiv>
     </>
