@@ -26,15 +26,15 @@ const Map = () => {
     ];
 
     // 내위치 커스텀 오버레이 생성
-    const customOverlayContent = `
-      <div class="customoverlay">
-        <span style="border 2px soled black">내위치</span>
-      </div>`;
-    const customOverlay = new kakao.maps.CustomOverlay({
-      map,
-      position,
-      content: customOverlayContent,
-    });
+    // const customOverlayContent = `
+    //   <div class="customoverlay">
+    //     <span style="border 2px soled black">내위치</span>
+    //   </div>`;
+    // const customOverlay = new kakao.maps.CustomOverlay({
+    //   map,
+    //   position,
+    //   content: customOverlayContent,
+    // });
 
     // 다른 위치 마커와 인포윈도우 생성
     positions.slice(1).forEach((item) => {
@@ -54,37 +54,13 @@ const Map = () => {
         infoWindow.open(map, marker);
       });
     });
-
-    // 지도 클릭 시 좌표 설정
-    kakao.maps.event.addListener(map, "click", function (mouseEvent) {
-      setLat(mouseEvent.latLng.getLat());
-      setLng(mouseEvent.latLng.getLng());
-    });
-  }, [address.address, lat, lng, mapOptions]);
-
-  useEffect(() => {
-    const geocoder = new kakao.maps.services.Geocoder();
-    const coord = new kakao.maps.LatLng(lat, lng);
-    geocoder.coord2Address(
-      coord.getLng(),
-      coord.getLat(),
-      function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-          setAddress({
-            address: result[0].address.address_name,
-            lat: lat,
-            lng: lng,
-          });
-        }
-      }
-    );
-  }, [lat, lng]);
+  }, [mapOptions]);
 
   return (
     <div
       id="map"
       ref={mapContainer}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%", cloor: "black" }}
     ></div>
   );
 };

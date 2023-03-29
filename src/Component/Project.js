@@ -4,7 +4,10 @@ import logo1 from "../Asset/1.png";
 import logo2 from "../Asset/2.png";
 import logo3 from "../Asset/3.png";
 import promise from "../Asset/promise.png";
-// import Map from "./Map";
+import SCSS from "../Asset/SCSS.png";
+import CSS from "../Asset/CSS.png";
+import down from "../Asset/download.gif";
+import Map from "./Map";
 
 function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
@@ -23,7 +26,7 @@ function Project({ scrollPosition }) {
   // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 10300 && scrollPosition <= 11200) {
+    if (scrollPosition >= 10200 && scrollPosition <= 11200) {
       setposition(false);
     } else {
       setposition(true);
@@ -149,7 +152,9 @@ function Project({ scrollPosition }) {
           <dayname>기간</dayname>
           <daying>2023.1.3 ~ 2023.1.31</daying>
           <dayname>map api를 이용한 지도 삽입</dayname>
-          <mapdiv>{/* <Map /> */}</mapdiv>
+          <mapdiv>
+            <Map />
+          </mapdiv>
           <desciptiondiv>
             Redux Toolkit을 이용하여 카카오 맵 API에서 반환한 좌표 값을 저장하고
             출력하는 기능을 추가했습니다. 이를 통해 지도에서 특정 위치를
@@ -174,6 +179,34 @@ function Project({ scrollPosition }) {
             Project보기(Repository)
           </a>
         </Project2div>
+        <Project3div>
+          <proname>Stack overflow(clone coding)</proname>
+          <dayname>기간</dayname>
+          <daying>2022.12.15 ~ 2023.01.02</daying>
+          <dayname>local Stroage를 이용한 데이터 저장</dayname>
+          <backdiv style={{ backgroundImage: `url(${down})` }} />
+
+          <desciptiondiv>
+            localStorage를 이용하여 새로고침 시에도 상태 값이{" "}
+            <stdiv>유지</stdiv>되도록 문제를 해결했습니다. 이를 통해 사용자 가
+            새로고침을 해도 이전에 입력한 데이터나 설정 값 등이 유지되어
+            불편함이 줄어들었습니다.
+          </desciptiondiv>
+          <dayname>SCSS 문법 도입</dayname>
+          <img src={SCSS} alt="img"></img>
+          <img src={CSS} alt="img"></img>
+          <desciptiondiv>
+            <stdiv>SCSS 문법</stdiv>을 도입하여 CSS를 개편하였고, 이를 통해
+            컴포넌트의 양을 줄일 수 있었습니다
+          </desciptiondiv>
+          <a
+            href="https://github.com/codestates-seb/seb41_pre_002"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Project보기(Repository)
+          </a>
+        </Project3div>
       </Projectdiv>
     </>
   );
@@ -258,6 +291,20 @@ const Project1div = styled.div`
     background-size: cover;
     transition: background-image 2s ease-in-out 1s;
     opacity: 0.8;
+    border-radius: 15px;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    margin: 10% 0px 0px 0px;
+  }
+`;
+
+const Project3div = styled(Project1div)`
+  backdiv {
+    width: 650px;
+    height: 500px;
+    background-image: ${({ background }) => ` url(${background})` || "white"};
+    background-size: cover;
+    transition: background-image 2s ease-in-out 1s;
+    opacity: 1;
     border-radius: 15px;
     border: 5px solid rgba(255, 255, 255, 0.8);
     margin: 10% 0px 0px 0px;
