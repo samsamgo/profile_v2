@@ -26,12 +26,13 @@ function Project({ scrollPosition }) {
   // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 10200 && scrollPosition <= 11200) {
+    if (scrollPosition >= 10300 && scrollPosition <= 11200) {
       setposition(false);
     } else {
       setposition(true);
     }
   }, [scrollPosition]);
+
   useEffect(() => {
     if (scrollPosition >= 9400 && scrollPosition <= 10300) {
       setshowimg(false);
@@ -193,8 +194,58 @@ function Project({ scrollPosition }) {
             불편함이 줄어들었습니다.
           </desciptiondiv>
           <dayname>SCSS 문법 도입</dayname>
-          <img src={SCSS} alt="img"></img>
-          <img src={CSS} alt="img"></img>
+          <exdiv>
+            {`<button style="background-color: #007bff; color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 0.25rem; cursor: pointer;">`}
+            <br />
+            <stdiv>{`Click me!`}</stdiv>
+            <br />
+            {`</button>`}
+            <br />
+            {`<button style="background-color: #6c757d; color: #fff; padding: 0.5rem 1rem; border: none; border-radius: 0.25rem; cursor: pointer;">`}
+            <br />
+            <stdiv>{`Click me too!`}</stdiv>
+            <br />
+            {`</button>`}
+          </exdiv>
+          <buttondiv>
+            <i class="fa-solid fa-arrow-down fa-3x"></i>
+          </buttondiv>
+          <exdiv>
+            {`.btn {`} <br />
+            {`  background-color: $button-bg-color;`} <br />
+            {`  color: $button-color;`} <br />
+            {`  padding: $button-padding;`} <br />
+            {`border: none;`} <br />
+            {`border-radius: 0.25rem;`} <br />
+            {` cursor: pointer;`} <br />
+            <br />
+            {`  &:hover {`} <br />
+            {`background-color: darken($button-bg-color, 10%);`} <br />
+            {` }`} <br />
+            <br />
+            {`&.btn-secondary {`} <br />
+            {`background-color: #6c757d;`} <br />
+            {`   color: #fff;`} <br />
+            <br />
+            {`  &:hover {`} <br />
+            {`background-color: darken(#6c757d, 10%); } } }`}
+            <br />
+            <br />
+            {`      button.btn-primary {`}
+            <br />
+            {` @extend .btn;`}
+            <br />
+            {`}`}
+            <br />
+            {`button.btn-secondary {`}
+            <br />
+            {`  @extend .btn;}`}
+            <br />
+            <br />
+            <stdiv>{`  <button class="btn-primary">Click me!</button>`}</stdiv>
+            <br />
+            <stdiv>{`<button class="btn-secondary">Click me too!</button>`}</stdiv>
+          </exdiv>
           <desciptiondiv>
             <stdiv>SCSS 문법</stdiv>을 도입하여 CSS를 개편하였고, 이를 통해
             컴포넌트의 양을 줄일 수 있었습니다
@@ -308,6 +359,34 @@ const Project3div = styled(Project1div)`
     border-radius: 15px;
     border: 5px solid rgba(255, 255, 255, 0.8);
     margin: 10% 0px 0px 0px;
+  }
+  exdiv {
+    margin: 60px 0px;
+    width: 800px;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    color: #a1a1a6;
+    stdiv {
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+  buttondiv {
+    margin: 50px 0px 0px 0px;
+    cursor: pointer;
+    animation: showHide 2s linear infinite;
+    @keyframes showHide {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 `;
 
