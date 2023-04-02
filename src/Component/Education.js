@@ -6,7 +6,7 @@ function Education({ scrollPosition }) {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 6300 && scrollPosition <= 8000) {
+    if (scrollPosition >= 6300 && scrollPosition <= 8400) {
       setShowText(true);
     } else {
       setShowText(false);
