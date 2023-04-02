@@ -4,8 +4,6 @@ import logo1 from "../Asset/1.png";
 import logo2 from "../Asset/2.png";
 import logo3 from "../Asset/3.png";
 import promise from "../Asset/promise.png";
-import SCSS from "../Asset/SCSS.png";
-import CSS from "../Asset/CSS.png";
 import down from "../Asset/download.gif";
 import Map from "./Map";
 

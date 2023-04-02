@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const Map = () => {
-  const [address, setAddress] = useState({});
+  const [address] = useState({});
   const mapContainer = useRef(null);
   const { kakao } = window;
   const position = new kakao.maps.LatLng(36.7722496, 126.451712);
