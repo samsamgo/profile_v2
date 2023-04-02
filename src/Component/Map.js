@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import styled from "styled-components";
 
-const { kakao } = window;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
-const MapTest = () => {
-  const [map, setMap] = useState(null);
-
-  //처음 지도 그리기
+const Map = () => {
   useEffect(() => {
-    const container = document.getElementById("map");
-    const options = { center: new kakao.maps.LatLng(33.450701, 126.570667) };
-    const kakaoMap = new kakao.maps.Map(container, options);
-    setMap(kakaoMap);
+    const { kakao } = window;
+    kakao.maps.load(() => {
+      const mapContainer = document.getElementById("map");
+      const options = {
+        center: new kakao.maps.LatLng(37.5665, 126.978),
+        level: 8,
+      };
+      const map = new kakao.maps.Map(mapContainer, options);
+    });
   }, []);
 
-  return (
-    <div
-      style={{
-        width: "100%",
-        display: "inline-block",
-        marginLeft: "5px",
-        marginRight: "5px",
-      }}
-    >
-      {map}
-      <div id="map" style={{ width: "99%", height: "500px" }}></div>
-    </div>
-  );
+  return <Container id="map" />;
 };
 
-export default MapTest;
+export default Map;
