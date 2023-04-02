@@ -54,7 +54,7 @@ const Map = () => {
         infoWindow.open(map, marker);
       });
     });
-  }, [address.address, lat, lng, mapOptions]);
+  }, [mapOptions]);
 
   return (
     <div
