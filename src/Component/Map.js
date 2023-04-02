@@ -16,6 +16,8 @@ const Map = () => {
         level: 8,
       };
       const map = new kakao.maps.Map(mapContainer, options);
+      map.setCenter(new kakao.maps.LatLng(37.5665, 126.978));
+      map.setLevel(4);
     });
   }, []);
 
