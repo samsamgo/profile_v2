@@ -37,23 +37,23 @@ const Map = () => {
     // });
 
     // 다른 위치 마커와 인포윈도우 생성
-    positions.slice(1).forEach((item) => {
-      const marker = new kakao.maps.Marker({
-        map,
-        position: item.position,
-        title: item.title,
-        image: new kakao.maps.MarkerImage(
-          "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-          new kakao.maps.Size(24, 35)
-        ),
-      });
-      const infoWindow = new kakao.maps.InfoWindow({
-        content: `<div style="width:200px; text-align :center; color: black; font-size: 14px;">${item.title}</div>`,
-      });
-      kakao.maps.event.addListener(marker, "click", function () {
-        infoWindow.open(map, marker);
-      });
-    });
+    // positions.slice(1).forEach((item) => {
+    //   const marker = new kakao.maps.Marker({
+    //     map,
+    //     position: item.position,
+    //     title: item.title,
+    //     image: new kakao.maps.MarkerImage(
+    //       "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+    //       new kakao.maps.Size(24, 35)
+    //     ),
+    //   });
+    //   const infoWindow = new kakao.maps.InfoWindow({
+    //     content: `<div style="width:200px; text-align :center; color: black; font-size: 14px;">${item.title}</div>`,
+    //   });
+    //   kakao.maps.event.addListener(marker, "click", function () {
+    //     infoWindow.open(map, marker);
+    //   });
+    // });
   }, [mapOptions]);
 
   return (
