@@ -11,7 +11,6 @@ const MapTest = () => {
     const options = { center: new kakao.maps.LatLng(33.450701, 126.570667) };
     const kakaoMap = new kakao.maps.Map(container, options);
     setMap(kakaoMap);
-    console.log(map);
   }, []);
 
   return (
@@ -23,6 +22,7 @@ const MapTest = () => {
         marginRight: "5px",
       }}
     >
+      {map}
       <div id="map" style={{ width: "99%", height: "500px" }}></div>
     </div>
   );
