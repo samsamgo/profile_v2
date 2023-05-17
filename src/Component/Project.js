@@ -11,7 +11,7 @@ function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
   // const [projectname, setprojectname] = useState("");
   const [background, setBackground] = useState(require("../Asset/back1.png"));
-
+  const [id, setId] = useState("");
   const [position, setposition] = useState(true);
   const [showimg, setshowimg] = useState(true);
 
@@ -24,12 +24,13 @@ function Project({ scrollPosition }) {
   // const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    if (scrollPosition >= 10300 && scrollPosition <= 11200) {
-      setposition(false);
+    if (document.getElementById("m1") === id) {
+      // 특정 작업을 수행합니다.
+      document.getElementById("m2").style.position = "fixed";
     } else {
-      setposition(true);
+      document.getElementById("m2").style.position = "relative";
     }
-  }, [scrollPosition]);
+  }, [id]);
 
   useEffect(() => {
     if (scrollPosition >= 9400 && scrollPosition <= 10300) {
@@ -57,7 +58,7 @@ function Project({ scrollPosition }) {
 
   return (
     <>
-      <Projectdiv>
+      <Projectdiv id="Project">
         <namediv>Project</namediv>
         <Logodiv>
           <img
@@ -123,9 +124,9 @@ function Project({ scrollPosition }) {
             </doordesciptiondiv>
           </door>
           <dayname>반응형 UI</dayname>
-          <StyledText>
+          <StyledText id="m1">
             <TextDiv
-              position={position}
+              id="m2"
               fontSize={Math.min(10, 10 - (scrollPosition - 10000) / 100)}
             >
               안녕하세요
@@ -399,12 +400,12 @@ const Project2div = styled(Project1div)`
 `;
 
 const StyledText = styled.div`
-  height: 1000px;
+  height: 500px;
 `;
 
 const TextDiv = styled.div`
   font-size: ${({ fontSize }) => `${fontSize}rem`};
-  position: ${({ position }) => (position ? "relative" : "fixed")};
+  /* position: ${({ position }) => (position ? "relative" : "fixed")}; */
   text-align: center;
   font-weight: bold;
   background-image: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);

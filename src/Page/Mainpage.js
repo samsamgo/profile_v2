@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-
 import Intro from "../Component/Intro";
 import Skill from "../Component/Skill";
 import Study from "../Component/Study";
@@ -23,39 +22,6 @@ function Mainpage() {
   }, []);
 
   useEffect(() => {
-    if (data.tooltipStates === "Modal for Tab 2") {
-      window.scrollTo({
-        top: 3000,
-        behavior: "smooth", // 부드러운 스크롤링을 위해 추가
-      });
-    }
-    if (data.tooltipStates === "Modal for Tab 1") {
-      window.scrollTo({
-        top: 4000,
-        behavior: "smooth", // 부드러운 스크롤링을 위해 추가
-      });
-    }
-    if (data.tooltipStates === "Modal for Tab 3") {
-      window.scrollTo({
-        top: 5800,
-        behavior: "smooth", // 부드러운 스크롤링을 위해 추가
-      });
-    }
-    if (data.tooltipStates === "Modal for Tab 4") {
-      window.scrollTo({
-        top: 7000,
-        behavior: "smooth", // 부드러운 스크롤링을 위해 추가
-      });
-    }
-    if (data.tooltipStates === "Modal for Tab 5") {
-      window.scrollTo({
-        top: 8500,
-        behavior: "smooth", // 부드러운 스크롤링을 위해 추가
-      });
-    }
-  }, [data.tooltipStates]);
-
-  useEffect(() => {
     if (scrollPosition <= 1000) {
       setShowText1(true);
     } else if (scrollPosition > 1000 && scrollPosition <= 2000) {
@@ -63,13 +29,14 @@ function Mainpage() {
       setShowText2(true);
     } else {
       setShowText2(!true);
+      setShowText1(false);
     }
     console.log(scrollPosition);
   }, [scrollPosition]);
 
   return (
     <>
-      <Maindiv>
+      <Maindiv id="page-top">
         <scrolldiv>
           {showText1 && <OpenCircle opacity={1 - scrollPosition / 1000} />}
           {showText2 && <CloseCircle opacity={(scrollPosition - 999) / 1000} />}
@@ -81,11 +48,11 @@ function Mainpage() {
             </StyledText>
           )}
         </scrolldiv>
-        <Intro id="Modal for Tab 2" scrollPosition={scrollPosition} />
-        <Study id="Modal for Tab 1" />
-        <Skill id="Modal for Tab 3" />
-        <Education id="Modal for Tab 4" scrollPosition={scrollPosition} />
-        <Project id="Modal for Tab 5" scrollPosition={scrollPosition} />
+        <Intro scrollPosition={scrollPosition} />
+        <Study />
+        <Skill />
+        <Education scrollPosition={scrollPosition} />
+        <Project scrollPosition={scrollPosition} />
       </Maindiv>
     </>
   );

@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Intro({ scrollPosition }) {
   return (
     <>
-      <Introdiv>
+      <Introdiv id="Introduction">
         <Contentdiv opacity={(scrollPosition - 2200) / 1000}>
           개발자로서 사용자의 만족도가 가장 중요하다는 것을 인지하고 있으며,
           이를 실현하기 위해 사용자의 요구사항과

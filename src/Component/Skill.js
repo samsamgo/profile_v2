@@ -7,7 +7,7 @@ function Skill() {
 
   return (
     <>
-      <Skilldiv>
+      <Skilldiv id="Skill">
         {active === "Front-end" && (
           <Showdiv isReqVisible={active === "Front-end"}>
             <namediv>Front end</namediv>
