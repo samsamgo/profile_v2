@@ -11,8 +11,8 @@ function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
   // const [projectname, setprojectname] = useState("");
   const [background, setBackground] = useState(require("../Asset/back1.png"));
-  const [id, setId] = useState("");
-  const [position, setposition] = useState(true);
+  const [id] = useState("");
+
   const [showimg, setshowimg] = useState(true);
 
   // const handleMouseEnter = (tabName) => (event) => {

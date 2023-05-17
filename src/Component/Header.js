@@ -192,60 +192,60 @@ const Navbar = () => {
 
 export default Navbar;
 
-const Modalbackdrop = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 200px;
-  margin: 20px 0px;
-  position: absolute;
-  &.animate__animated {
-    animation-duration: 2s;
-  }
-  &.animate__fadeOutUp {
-    animation-name: fadeOutUp;
-  }
-  &.animate__fadeInDown {
-    animation-name: fadeInDown;
-  }
-`;
+// const Modalbackdrop = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   height: 200px;
+//   margin: 20px 0px;
+//   position: absolute;
+//   &.animate__animated {
+//     animation-duration: 2s;
+//   }
+//   &.animate__fadeOutUp {
+//     animation-name: fadeOutUp;
+//   }
+//   &.animate__fadeInDown {
+//     animation-name: fadeInDown;
+//   }
+// `;
 
-const Modal = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  font-size: 2rem;
-  margin: 10px 30px;
-  font-weight: bold;
-  color: #a1a1aa;
-  &:hover {
-    color: rgba(255, 255, 255, 1);
-    cursor: grab;
-  }
-`;
+// const Modal = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   position: fixed;
+//   font-size: 2rem;
+//   margin: 10px 30px;
+//   font-weight: bold;
+//   color: #a1a1aa;
+//   &:hover {
+//     color: rgba(255, 255, 255, 1);
+//     cursor: grab;
+//   }
+// `;
 
-const StyledTab = styled.div`
-  margin: 0px 20px;
-  &:hover {
-    color: rgba(255, 255, 255, 1);
-    cursor: grab;
-  }
-`;
+// const StyledTab = styled.div`
+//   margin: 0px 20px;
+//   &:hover {
+//     color: rgba(255, 255, 255, 1);
+//     cursor: grab;
+//   }
+// `;
 
-const Tab = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
+// const Tab = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// `;
 
-const Headdiv = styled.div`
-  width: 100%;
-  z-index: 3;
-  background-color: black;
-  position: fixed;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
-  padding: 10px 0px;
-  display: flex;
-  flex-direction: column;
-`;
+// const Headdiv = styled.div`
+//   width: 100%;
+//   z-index: 3;
+//   background-color: black;
+//   position: fixed;
+//   color: rgba(255, 255, 255, 0.8);
+//   font-size: 1rem;
+//   padding: 10px 0px;
+//   display: flex;
+//   flex-direction: column;
+// `;
