@@ -421,51 +421,58 @@ const TextDiv = styled.div`
   `};
 `;
 
-const Logodiv = styled.div`  
-    display: flex;
-    flex-direction: ${({ showText }) => (!showText ? "row" : "column")};
-    height:150px;
-    width: 800px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    img {
-    margin:0px 50px;
-      width: 60px;
-      height: 60px;
-      opacity: 0.8;
-      border-radius: 15px;
-      border: 5px solid rgba(255, 255, 255, 0.8);
-      &:hover {
-        opacity: 1;
-        width: 80px;
-        height: 80px;
-      }
+const Logodiv = styled.div`
+  display: flex;
+  flex-direction: ${({ showText }) => (!showText ? "row" : "column")};
+  height: 150px;
+  width: 800px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  img {
+    margin: 0px 50px;
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+    border-radius: 15px;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    &:hover {
+      opacity: 1;
+      width: 80px;
+      height: 80px;
     }
-    modal {
+  }
+  modal {
     position: absolute;
-        modalname{
-           font-size: 2rem;
-              font-weight: 800;
-             margin:0px 0px 30px 0px;
-             background-image: linear-gradient(to left, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
-             -webkit-background-clip: text !important;
-             color: transparent;
+    modalname {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0px 0px 30px 0px;
+      background-image: linear-gradient(
+        to left,
+        lightgrey 0%,
+        lightgrey 1%,
+        #e0e0e0 26%,
+        #efefef 48%,
+        #d9d9d9 75%,
+        #bcbcbc 100%
+      );
+      -webkit-background-clip: text !important;
+      color: transparent;
     }
     display: flex;
     flex-direction: column;
     width: 400px;
     height: auto;
     font-weight: 600;
-    color: #a1a1aa
+    color: #a1a1aa;
     margin-right: auto;
     top: 150px;
     font-size: 1rem;
     line-height: 1.5rem;
     text-align: center;
-
-    }
-  `;
+  }
+`;
 
 const Projectdiv = styled.div`
   width: 100%;

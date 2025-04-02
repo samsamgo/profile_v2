@@ -37,7 +37,7 @@ function Mainpage() {
   return (
     <>
       <Maindiv id="page-top">
-        <scrolldiv>
+        <Scrolldiv>
           {showText1 && <OpenCircle opacity={1 - scrollPosition / 1000} />}
           {showText2 && <CloseCircle opacity={(scrollPosition - 999) / 1000} />}
           {(showText1 || showText2) && (
@@ -47,11 +47,11 @@ function Mainpage() {
               장경욱입니다.
             </StyledText>
           )}
-        </scrolldiv>
+        </Scrolldiv>
         <Intro scrollPosition={scrollPosition} />
         <Study />
         <Skill />
-        <Education scrollPosition={scrollPosition} />
+        <Education scrollPosition={scrollPosition} />{" "}
         <Project scrollPosition={scrollPosition} />
       </Maindiv>
     </>
@@ -67,14 +67,16 @@ const Maindiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  scrolldiv {
-    height: 3000px;
-  }
+
   introdiv {
     z-index: 3;
     display: flex;
     flex-direction: row;
   }
+`;
+
+const Scrolldiv = styled.div`
+  height: 3000px;
 `;
 
 const OpenCircle = styled.div`
@@ -113,6 +115,7 @@ const StyledText = styled.div`
     #ee609c 66%,
     #ee609c 100%
   );
+  background-clip: text;
   -webkit-background-clip: text !important;
   color: transparent;
 `;
