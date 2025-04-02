@@ -128,6 +128,13 @@ function Study() {
                 ],
               },
             ]}
+            tooltip={({ datum }) => (
+              <CustomTooltip>
+                <strong>{datum.id}</strong>
+                <br />
+                {getTooltipText(datum.id)}
+              </CustomTooltip>
+            )}
           />
         </study>
         <contentname>시간을 뛰어넘는 가치</contentname>
@@ -152,10 +159,43 @@ function Study() {
 
 export default Study;
 
+const getTooltipText = (id) => {
+  switch (id) {
+    case "프론트엔드":
+      return "React와 Styled-components를 이용한 UI 구축 경험";
+    case "백엔드":
+      return "Node.js와 Spring을 활용한 서버 개발 및 API 구축";
+    case "후기":
+      return "프로젝트 후 회고와 문서화";
+    case "CS":
+      return "자료구조, 운영체제, 네트워크 등 전산 기초 학습";
+    case "ETC":
+      return "기타 개발 지식과 실험적 시도들";
+    case "lisp":
+      return "함수형 프로그래밍에 대한 탐구";
+    case "elixir":
+      return "동시성 프로그래밍에 대한 실험";
+    case "javascript":
+      return "JavaScript의 언어적 깊이에 대한 기록";
+    default:
+      return "기록 없음";
+  }
+};
+
+const CustomTooltip = styled.div`
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  max-width: 250px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+`;
+
 const StyledPieChart = styled(ResponsivePie)`
-  height: 400px; /* 부모 컨테이너의 높이를 설정해줍니다. */
+  height: 400px;
   margin: 50px;
-  /* 추가적인 스타일링을 원하는 경우 여기에 작성합니다. */
 `;
 
 const Studydiv = styled.div`
