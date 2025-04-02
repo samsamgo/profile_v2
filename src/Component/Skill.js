@@ -199,11 +199,24 @@ function Skill() {
               </li>
               <li>
                 <lidiv onMouseEnter={() => setSkillActive("C++")}>
-                  C++{Skillactive === "C++" && <modal>sadfasdf</modal>}
+                  C++
+                  {Skillactive === "C++" && (
+                    <modal>
+                      ARM 기반 STM32 MCU를 C++로 직접 제어하며 마이크로프로세서
+                      개발을 경험했고, 해당 프로젝트로 프로그램 경진대회에도
+                      출전한 경험이 있습니다.
+                    </modal>
+                  )}
                 </lidiv>
                 ,
                 <lidiv onMouseEnter={() => setSkillActive("Python")}>
-                  Python{Skillactive === "Python" && <modal>sadfasdf</modal>}
+                  Python
+                  {Skillactive === "Python" && (
+                    <modal>
+                      Python은 시리얼 통신 및 디버깅 자동화에 활용하며
+                      하드웨어와 소프트웨어 간의 연결을 구현한 적이 있습니다
+                    </modal>
+                  )}
                 </lidiv>
               </li>
             </ul>
