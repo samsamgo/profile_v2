@@ -6,6 +6,7 @@ import logo3 from "../Asset/3.png";
 import promise from "../Asset/promise.png";
 import down from "../Asset/download.gif";
 import Map from "./Map";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Project({ scrollPosition }) {
   const [Skillactive, setSkillActive] = useState("");
@@ -207,7 +208,9 @@ function Project({ scrollPosition }) {
             {`</button>`}
           </exdiv>
           <buttondiv>
-            <i class="fa-solid fa-arrow-down fa-3x"></i>
+            <div style={{ color: "white", fontSize: "3rem", padding: "50px" }}>
+              {/*<i className="fas fa-arrow-down"></i>*/} ↓
+            </div>
           </buttondiv>
           <exdiv>
             {`.btn {`} <br />
