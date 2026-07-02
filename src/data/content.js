@@ -219,7 +219,10 @@ export const projects = [
       "다양한 화면 크기에 대응하는 반응형 UI 개편",
     ],
     tags: ["React", "Styled-components", "Responsive"],
-    links: [{ label: "배포 링크", url: "https://samsamgo.netlify.app/" }],
+    links: [
+      { label: "배포 링크", url: "https://samsamgo.netlify.app/" },
+      { label: "Repository", url: "https://github.com/samsamgo/Profile" },
+    ],
     gallery: [back1, back2, back3, back4, back5, back6],
   },
   {
